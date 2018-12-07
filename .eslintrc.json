@@ -15,5 +15,9 @@
         "es6": true,
         "browser": true,
         "node": true
+    },
+    "globals": {
+        "React": true,
+        "ReactDOM": true
     }
 }
