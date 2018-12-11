@@ -1,8 +1,8 @@
 import React from "react";
 import { render } from "react-dom";
-import { Link, Router } from '@reach/router';
-import Details from './Details';
-import Results from './Results';
+import { Link, Router } from "@reach/router";
+import Details from "./Details";
+import Results from "./Results";
 
 class App extends React.Component {
   render() {
