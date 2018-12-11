@@ -1,53 +1,12 @@
 import React from "react";
 import pf, { ANIMALS } from "petfinder-client";
 
-
 const petfinder = pf({
-    key: process.env.API_KEY,
-    secret: process.env.API_SECRET
+  key: process.env.API_KEY,
+  secret: process.env.API_SECRET
 });
 
 class SearchParams extends React.Component {
-  // Default search params
-  state = {
-    location: "Brooklyn, NY",
-    animal: "",
-    breed: "",
-    breeds: []
-  };
-  handleBreedChange = event => {
-      this.setState({
-          breed: event.target.value
-      })
-  }
-  handleLocationChange = event => {
-    this.setState({
-      location: event.target.value
-    });
-  };
-  handleAnimalChange = event => {
-    this.setState({
-      animal: event.target.value,
-      breed: ""
-    }, this.getBreeds);
-  };
-  getBreeds() {
-    if (this.state.animal) {
-        petfinder.breed.list({ animal: this.state.animal }).then(data => {
-            if (data.petfinder &&
-                data.petfinder.breeds &&
-                Array.isArray(data.petfinder.breeds.breed)) {
-                    this.setState({
-                        breeds: data.petfinder.breeds.breed
-                    })
-                } else {
-                    this.setState({ breeds: [] })
-                }
-        })
-    } else {
-        this.setState({ breeds: [] });
-    }
-  };
   render() {
     return (
       <div className="search-params">
@@ -77,21 +36,21 @@ class SearchParams extends React.Component {
           </select>
         </label>
         <label htmlFor="breed">
-                breed
-                <select
-                    id="breed"
-                    value={this.state.breed}
-                    onChange={this.handleBreedChange}
-                    onBlur={this.handleBreedChange}
-                    disabled={!this.state.breeds.length}
-                >
-                <option />
-                {this.state.breeds.map(breed => (
-                    <option key={breed} value={breed}>
-                        {breed}
-                    </option>
-                ))}
-                </select>
+          breed
+          <select
+            id="breed"
+            value={this.state.breed}
+            onChange={this.handleBreedChange}
+            onBlur={this.handleBreedChange}
+            disabled={!this.state.breeds.length}
+          >
+            <option />
+            {this.state.breeds.map(breed => (
+              <option key={breed} value={breed}>
+                {breed}
+              </option>
+            ))}
+          </select>
         </label>
       </div>
     );
