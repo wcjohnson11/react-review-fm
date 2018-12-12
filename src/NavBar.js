@@ -10,14 +10,20 @@ const Container = styled("header")`
     z-index: 10;
 `;
 
+const NavLink = styled(Link)`
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
 const NavBar = () => (
   <Container>
-    <Link to="/">Adopt Me!</Link>
-    <Link to="/search-params">
+    <NavLink to="/">Adopt Me!</NavLink>
+    <NavLink to="/search-params">
       <span aria-label="search" role="img">
         🔍
       </span>
-    </Link>
+    </NavLink>
   </Container>
 );
 
