@@ -16,7 +16,7 @@ const Spin = keyframes`
 
 const SpyGlass = styled("span")`
   display: inline-block;
-  animation: 1s ${Spin} linear infinite;
+  animation: ${props => props.frequency}s ${Spin} linear infinite;
 `;
 
 const Container = styled("header")`
@@ -36,7 +36,7 @@ const NavBar = () => (
   <Container>
     <NavLink to="/">Adopt Me!</NavLink>
     <NavLink to="/search-params">
-      <SpyGlass aria-label="search" role="img">
+      <SpyGlass aria-label="search" frequency={5} role="img">
         🔍
       </SpyGlass>
     </NavLink>
