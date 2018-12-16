@@ -3,6 +3,7 @@ import pf from "petfinder-client";
 import { Consumer } from "./SearchContext";
 import Pet from "./Pet";
 import SearchBox from "./SearchBox";
+import { connect } from "react-redux";
 
 const petfinder = pf({
   key: process.env.API_KEY,
@@ -69,10 +70,17 @@ class Results extends React.Component {
   }
 }
 
-export default function ResultsWithContext(props) {
+function ResultsWithContext(props) {
   return (
     <Consumer>
       {context => <Results {...props} searchParams={context} />}
     </Consumer>
   );
 }
+
+
+const mapStateToProps = ({ location }) => {
+  return {location}
+}
+
+export default connect(mapStateToProps)(ResultsWithContext);
