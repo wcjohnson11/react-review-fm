@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "@reach/router";
-import styled from '@emotion/styled';
-import { keyframes } from '@emotion/core';
-import colors from './colors';
+import styled from "@emotion/styled";
+import { keyframes } from "@emotion/core";
+import colors from "./colors";
 
 const Spin = keyframes`
   from {
@@ -20,10 +20,10 @@ const SpyGlass = styled("span")`
 `;
 
 const Container = styled("header")`
-    background-color: ${colors.dark};
-    position: sticky;
-    top: 0;
-    z-index: 10;
+  background-color: ${colors.dark};
+  position: sticky;
+  top: 0;
+  z-index: 10;
 `;
 
 const NavLink = styled(Link)`

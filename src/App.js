@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "react-dom";
 import { Router } from "@reach/router";
 import pf from "petfinder-client";
-import Loadable from 'react-loadable';
+import Loadable from "react-loadable";
 import { Provider } from "./SearchContext";
 import NavBar from "./NavBar";
 
@@ -12,9 +12,9 @@ const petfinder = pf({
 });
 
 const LoadableDetails = Loadable({
-  loader: () => import('./Details'),
+  loader: () => import("./Details"),
   loading() {
-    return <h1>loading split out code </h1>
+    return <h1>loading split out code </h1>;
   }
 });
 
